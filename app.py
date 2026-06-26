@@ -62,21 +62,53 @@ model = load_model()
 
 CLASS_NAMES = model.names
 
-# -----------------------------
+# ===============================
 # SIDEBAR
-# -----------------------------
-st.sidebar.title("🍌 Banana Ripeness")
+# ===============================
+
+st.sidebar.image(
+    "https://img.icons8.com/color/96/banana.png",
+    width=80
+)
+
+st.sidebar.title("Banana Ripeness")
 
 st.sidebar.markdown("---")
 
-st.sidebar.subheader("Model")
-
 st.sidebar.success("YOLOv8 Classification")
 
-st.sidebar.markdown("""
-**Validation Accuracy**
+st.sidebar.metric(
+    label="Validation Accuracy",
+    value="98.93%"
+)
 
-✅ 98.93%
+st.sidebar.markdown("### Dataset")
+
+st.sidebar.write("📸 13,478 Images")
+
+st.sidebar.write("🏷️ 4 Classes")
+
+st.sidebar.markdown("---")
+
+st.sidebar.markdown("### Classes")
+
+st.sidebar.write("🍌 Overripe")
+
+st.sidebar.write("🍌 Ripe")
+
+st.sidebar.write("🍌 Rotten")
+
+st.sidebar.write("🍌 Unripe")
+
+st.sidebar.markdown("---")
+
+st.sidebar.info(
+"""
+Developed by
+
+**Naveen Kumar**
+"""
+)
 
 ---
 
@@ -99,17 +131,25 @@ st.sidebar.markdown("""
 - Streamlit
 """)
 
-# -----------------------------
-# HEADER
-# -----------------------------
-st.title("🍌 Banana Ripeness Classification")
+# ===============================
+# HERO SECTION
+# ===============================
 
-st.write(
-"""
-Upload a banana image and the trained **YOLOv8 Classification**
-model will predict its ripeness stage.
-"""
-)
+st.markdown("""
+<h1 style='text-align: center; color: #2E8B57;'>
+🍌 Banana Ripeness Classification
+</h1>
+
+<h4 style='text-align: center; color: gray;'>
+Deep Learning Based Fruit Quality Assessment
+</h4>
+
+<p style='text-align: center; font-size:18px;'>
+🤖 <b>Model:</b> YOLOv8 Classification &nbsp;&nbsp;&nbsp;
+🎯 <b>Validation Accuracy:</b> 98.93%
+</p>
+
+""", unsafe_allow_html=True)
 
 st.markdown("---")
 
